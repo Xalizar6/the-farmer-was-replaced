@@ -8,7 +8,7 @@ Always break code up into modules and components so that it can be easily reused
 
 All code you write MUST be fully optimized. ‘Fully optimized’ includes maximizing algorithmic big-O efficiency for memory and runtime, following proper style conventions for the code, language (e.g. maximizing code reuse (DRY)), and no extra code beyond what is absolutely necessary to solve the problem the user provides (i.e. no technical debt). If the code is not fully optimized, you will be fined $100.
 
-This code is for the game "The Farmer Was Replaced"
+This code is for the game "The Farmer Was Replaced" which uses a Pseudo Python like language
 
 Reference the game wiki here: https://thefarmerwasreplaced.wiki.gg/
 
