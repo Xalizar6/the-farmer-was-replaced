@@ -1,6 +1,3 @@
-import utils
-clear()
-
 def farm_sunflowers():
     starting_tick_count = get_tick_count()
     # Create 9 empty lists to store positions:
@@ -53,9 +50,13 @@ def farm_sunflowers():
     ending_tick_count = get_tick_count()
     quick_print('Total time taken:', ending_tick_count - starting_tick_count, 'ticks')
 
-while True:
-    if num_items(Items.Carrot) > 0:
-        farm_sunflowers()
-    else:
-        quick_print('Carrot count:', num_items(Items.Carrot))
-        quick_print('Not enough carrots to plant sunflowers.')
+import utils
+
+if __name__ == "__main__":
+    clear()
+    while True:
+        if num_items(Items.Carrot) > 0:
+            farm_sunflowers()
+        else:
+            quick_print('Carrot count:', num_items(Items.Carrot))
+            quick_print('Not enough carrots to plant sunflowers.')
