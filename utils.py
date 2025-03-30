@@ -4,7 +4,6 @@ world_size = get_world_size()
 # Function to ensure water level is maintained above 75%
 def water():
     while get_water() <= 0.75:
-        # quick_print('Watering: ', get_water())
         use_item(Items.Water)
 
 # Function to navigate through the map, moving north and east
@@ -31,11 +30,16 @@ def plant_carrots():
         till()
     plant(Entities.Carrot)
 
-# Function to plant sunflowers, tilling soil if necessary
+# Function to plant sunflowers
+    # tilling soil if necessary
+    # harvesting if sunflower is already planted
 def plant_sunflowers():
-    if get_ground_type() != Grounds.Soil:
-        till()
-    plant(Entities.Sunflower)
+    if plant(Entities.Sunflower) == False:
+        if get_ground_type() != Grounds.Soil:
+            till()
+        if get_entity_type() != None:
+            harvest()
+        plant(Entities.Sunflower)
 
 # Function to move to a specific x coordinate efficiently
 def move_to_x(target_x):
