@@ -11,6 +11,7 @@ Missing Python features in the game
   - Support for Docstrings
   - Support for Type hinting
   - Support for Inlined statements (e.g., else: return False)
+  - enumerate()
 
 Use snake_case for variable and function names.
 
@@ -19,3 +20,7 @@ Use CamelCase for class names.
 Follow PEP 8 style guidelines.
 
 Add comments to functions describing what they do
+
+The grid layout has the (0,0) coordinate in the bottom left corner
+  - x goes left to right in columns from 0 in the bottom left
+  - y goes bottom to top in rows with 0 in the bottom left
