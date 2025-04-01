@@ -41,6 +41,14 @@ def plant_sunflowers():
             harvest()
         plant(Entities.Sunflower)
 
+# Function to plant cactus
+    # tilling soil if necessary
+def plant_cactus():
+    if plant(Entities.Cactus) == False:
+        if get_ground_type() != Grounds.Soil:
+            till()
+        plant(Entities.Cactus)
+
 # Function to move to a specific x coordinate efficiently
 def move_to_x(target_x):
     current_x = get_pos_x()
