@@ -1,4 +1,4 @@
-# version: 1.003
+# version: 1.004
 # Info for LLM
     # Like other plants, cactus can be grown on soil and harvested as usual.
 
@@ -36,30 +36,38 @@
 # Sort a column from bottom to top using bubble sort
 def sort_column_vertically(x):
     utils.move_to_position(x, 0)  # Move to bottom of column
-    # Start from bottom, compare with cell above and swap if needed
-    for i in range(utils.world_size - 1):
+    # Continue passing through column until no swaps are needed
+    swapped = True
+    while swapped:
+        swapped = False
         for y in range(utils.world_size - 1):
             current = measure()
             above = measure(North)
 
             if current > above:
                 swap(North)
+                swapped = True
             move(North)
-        utils.move_to_position(x, 0)  # Reset to bottom for next pass
+        if swapped:
+            utils.move_to_position(x, 0)  # Reset to bottom for next pass
 
 # Sort a row from left to right using bubble sort
 def sort_horizontally(y):
     utils.move_to_position(0, y)  # Move to left edge of row
-    # Start from left, compare with cell to right and swap if needed
-    for i in range(utils.world_size - 1):
+    # Continue passing through row until no swaps are needed
+    swapped = True
+    while swapped:
+        swapped = False
         for x in range(utils.world_size - 1):
             current = measure()
             right = measure(East)
 
             if current > right:
                 swap(East)
+                swapped = True
             move(East)
-        utils.move_to_position(0, y)  # Reset to left edge for next pass
+        if swapped:
+            utils.move_to_position(0, y)  # Reset to left edge for next pass
 
 # Farm cactus by planting, sorting, and harvesting
 def farm_cactus():
