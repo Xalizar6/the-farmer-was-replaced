@@ -24,3 +24,5 @@ Add comments to functions describing what they do
 The grid layout has the (0,0) coordinate in the bottom left corner
   - x goes left to right in columns from 0 in the bottom left
   - y goes bottom to top in rows with 0 in the bottom left
+
+Add a Version number to the top of the script file and increment each time we make changes
