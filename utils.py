@@ -1,3 +1,5 @@
+# Version 1.2
+
 # Globals
 world_size = get_world_size()
 
@@ -16,13 +18,14 @@ def travel():
 def plant_bushes():
     plant(Entities.Bush)
 
-# Function to plant trees in alternating rows based on y position
+# Function to plant trees in a checkerboard pattern based on x,y position
 def plant_trees():
-    if get_pos_y() % 2 == 0:
+    x_even = get_pos_x() % 2 == 0
+    y_even = get_pos_y() % 2 == 0
+    if x_even == y_even:
         plant(Entities.Tree)
         return True
-    else:
-        return False
+    return False
 
 # Function to plant carrots, tilling soil if necessary
 def plant_carrots():
