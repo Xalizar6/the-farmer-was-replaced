@@ -1,3 +1,5 @@
+# Version 1.2
+
 # Globals
 world_size = get_world_size()
 
@@ -16,13 +18,14 @@ def travel():
 def plant_bushes():
     plant(Entities.Bush)
 
-# Function to plant trees in alternating rows based on y position
+# Function to plant trees in a checkerboard pattern based on x,y position
 def plant_trees():
-    if get_pos_y() % 2 == 0:
+    x_even = get_pos_x() % 2 == 0
+    y_even = get_pos_y() % 2 == 0
+    if x_even == y_even:
         plant(Entities.Tree)
         return True
-    else:
-        return False
+    return False
 
 # Function to plant carrots, tilling soil if necessary
 def plant_carrots():
@@ -40,6 +43,14 @@ def plant_sunflowers():
         if get_entity_type() != None:
             harvest()
         plant(Entities.Sunflower)
+
+# Function to plant cactus
+    # tilling soil if necessary
+def plant_cactus():
+    if plant(Entities.Cactus) == False:
+        if get_ground_type() != Grounds.Soil:
+            till()
+        plant(Entities.Cactus)
 
 # Function to move to a specific x coordinate efficiently
 def move_to_x(target_x):
